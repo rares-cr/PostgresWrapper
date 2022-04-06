@@ -21,7 +21,7 @@ database_config_validator = Schema(
 class PGWrapper:
     def __init__(self, config: dict, autocommit: bool = True) -> None:
         """
-        Some quick concepts assuming that you have some Python knowledge already:
+        
             PGWrapper is a class. A class is a template for creating objects with user defined properties and methods. An instance is an object created with this class.
             This function is the constructor of the PGWrapper class.
             A class constructor is a special function of a class that is executed whenever we create new objects of that class.
@@ -41,11 +41,11 @@ class PGWrapper:
 
     def __enter__(self):
         """
-        This is magic method in Python called a dunder. It adds extra functionality to your instances created with this class.
+        This is a magic method in Python called a dunder. It adds extra functionality to your instances created with this class.
         This particular dunder implements a context manager in Python and it allows you to write code as following:
             with PGWrapper(config) as db_con:
                 results = db_con.query_as_list_of_dicts("SELECT * FROM information_schema.schemata")
-        Whilst the usual way (which you can still use anyway) would be:
+        Whilst the usual way would be:
             db_con = PGWrapper(config)
             db_con.connect()
             results = db_con.query_as_list_of_dicts("SELECT * FROM information_schema.schemata")
